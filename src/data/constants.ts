@@ -48,6 +48,9 @@ export enum SkillNames {
   SCIPY                = "scipy",
   PYTHON               = "Python",
   MATPLOTLIB           = "Matplot",
+  // Row 7
+  BIGQUERY             = "Big Query",
+  SQL                  = "SQL",
 }
 
 export type Skill = {
@@ -270,6 +273,16 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "Publication-quality plots for model evaluation, training curves and data analysis 📊",
     color: "#11557C", icon: "/assets/skills/Matplotlib.png",
   },
+  [SkillNames.BIGQUERY]: {
+    id: 43, name: "Big Query", label: "BigQuery",
+    shortDescription: "Warehouse-native SQL and ML for production clinical data pipelines at scale",
+    color: "#669DF6", icon: "/assets/skills/googlecloud.svg",
+  },
+  [SkillNames.SQL]: {
+    id: 44, name: "SQL", label: "SQL",
+    shortDescription: "Analytical SQL for joins, window functions and longitudinal event modeling",
+    color: "#00758F", icon: "/assets/skills/database.svg",
+  },
 };
 
 
@@ -287,6 +300,33 @@ export type Experience = {
 export const EXPERIENCE: Experience[] = [
   {
     id: 1,
+    startDate: "May 2026",
+    endDate: "Present",
+    title: "Machine Learning Engineering Intern",
+    company: "Phamily (Jaan Health) · New York, United States · On-site",
+    description: [
+      "Built the production data pipeline behind the ML systems on BigQuery with Python/pandas, Gemini AI.GENERATE_TABLE and Presidio PII de-identification, unifying 14+ event sources into longitudinal patient timelines, structured episodes and governed, PHI-safe training data.",
+      "Trained and deployed a BioBERT clinical risk classifier predicting Emergency Room visits across 1, 7, 14 and 30 day horizons under heavy class imbalance, selecting the deployed operating point per horizon on the precision-recall trade-off and reaching 71% precision and recall at 30 days, giving care teams an early-warning signal ahead of escalation.",
+      "Architected a two-pass LLM extraction and QA pipeline with version-controlled taxonomies, structured outputs, retry logic and blind clinician validation, yielding 500K+ discrete care needs from six months of unstructured communications.",
+      "Engineered the batched inference path for that pipeline: diagnosed indefinite hangs caused by a client retrying backend errors with silent backoff, replaced it with bounded retries plus a hard result timeout, and added incremental checkpointing so a failure costs one chunk rather than the whole run.",
+      "Diagnosed a grading-consistency defect in the evaluation workflow causing a 33% clinician-model disagreement rate and drove it to 0%, restoring the validity of every downstream quality metric.",
+      "Identified a large cohort of patients with documented needs but no formal care plan, quantified the coverage gap, and presented the analysis to executive, clinical and investor stakeholders at a quarterly business review.",
+    ],
+    skills: [
+      SkillNames.PYTHON,
+      SkillNames.SQL,
+      SkillNames.BIGQUERY,
+      SkillNames.PANDAS,
+      SkillNames.GCP,
+      SkillNames.LLM,
+      SkillNames.GENAI,
+      SkillNames.PYTORCH,
+      SkillNames.HUGGINGFACE,
+      SkillNames.JUPYTER,
+    ],
+  },
+  {
+    id: 2,
     startDate: "Dec 2025",
     endDate: "Jan 2026",
     title: "Volunteer Full-Stack Developer",
@@ -306,7 +346,7 @@ export const EXPERIENCE: Experience[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     startDate: "Feb 2023",
     endDate: "Apr 2023",
     title: "Software Development Intern",
